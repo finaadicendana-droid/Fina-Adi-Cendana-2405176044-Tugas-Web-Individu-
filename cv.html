@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV — Fina Kim | The Idol's Table</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .cv-container { max-width: 100%; }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 24px rgba(30,42,58,0.10);
+            padding: 36px 40px;
+            margin: 24px 0;
+        }
+
+        .profile-photo-wrapper { flex-shrink: 0; text-align: center; }
+
+        .profile-photo {
+            width: 160px !important;
+            height: 160px;
+            border-radius: 50% !important;
+            object-fit: cover;
+            border: 4px solid var(--pink-dark);
+            box-shadow: 0 4px 16px rgba(232,135,156,0.30);
+            margin: 0 !important;
+            display: block;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .profile-photo:hover { transform: scale(1.04); box-shadow: 0 8px 28px rgba(232,135,156,0.40); }
+
+        .profile-info { flex: 1; }
+
+        .profile-info h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--navy);
+            border: none;
+            padding: 0;
+            margin: 0 0 4px 0;
+        }
+
+        .profile-title { color: var(--pink-dark); font-weight: 700; font-size: 1rem; margin-bottom: 12px; }
+
+        .profile-contact { list-style: none; padding: 0; margin: 0; }
+
+        .profile-contact li {
+            font-size: 0.92rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: none;
+            box-shadow: none;
+            border: none;
+            padding: 0;
+        }
+
+        .contact-icon { font-size: 1rem; width: 20px; text-align: center; }
+
+        .cv-section {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 24px rgba(30,42,58,0.08);
+            padding: 28px 36px;
+            margin: 20px 0;
+        }
+
+        .cv-section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: var(--navy);
+            border: none;
+            padding: 0 0 10px 0;
+            margin: 0 0 18px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cv-section-title::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, var(--pink-dark), transparent);
+            border-radius: 2px;
+        }
+
+        .cv-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed var(--pink);
+        }
+
+        .cv-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+
+        .cv-item-date {
+            min-width: 100px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--pink-dark);
+            background: var(--cream);
+            border-radius: 8px;
+            padding: 4px 10px;
+            text-align: center;
+            height: fit-content;
+            margin-top: 2px;
+            white-space: nowrap;
+        }
+
+        .cv-item-body h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            color: var(--navy);
+            margin: 0 0 2px 0;
+        }
+
+        .cv-item-body .institution { font-weight: 600; font-size: 0.9rem; color: var(--text-light); margin-bottom: 6px; }
+        .cv-item-body p { font-size: 0.9rem; color: var(--text-light); margin: 0; }
+
+        /* Skills grid — 4 kolom di laptop */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .skill-category h4 { font-size: 0.9rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+        .skill-tag {
+            background: var(--cream);
+            border: 1.5px solid var(--pink);
+            color: var(--navy);
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        /* Dokumentasi label */
+        .doc-label {
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .profile-section { flex-direction: column; text-align: center; gap: 20px; padding: 24px 20px; }
+            .profile-contact li { justify-content: center; }
+            .cv-item { flex-direction: column; gap: 8px; }
+            .cv-item-date { width: fit-content; }
+            .skills-grid { grid-template-columns: repeat(2, 1fr); }
+            .cv-section { padding: 20px; }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .skills-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Curriculum Vitae</h1>
+    <p align="center"><i>by Fina Kim</i></p>
+
+    <p align="center">
+        <a href="Home.html">Home</a> |
+        <a href="Resep Makanan.html">Resep</a> |
+        <a href="Menu Viral Korea.html">Menu Viral</a> |
+        <a href="Tempat Makan Rekomendasi.html">Tempat Makan</a>
+    </p>
+
+    <hr>
+
+    <div class="cv-container">
+
+        <!-- PROFIL -->
+        <div class="profile-section">
+            <div class="profile-photo-wrapper">
+                <img src="asset/profil pina.jpeg" alt="Foto Profil Fina Kim" class="profile-photo">
+            </div>
+            <div class="profile-info">
+                <h2>Fina Adi Cendana</h2>
+                <p class="profile-title">✦ Mahasiswa (Universitas Mulawarman: Pendidikan Komputer) ✦</p>
+                <ul class="profile-contact">
+                    <li><span class="contact-icon">📍</span> Kediri, 19 - April - 2006</li>
+                    <li><span class="contact-icon">📧</span> finaadicendana@gmail.com</li>
+                    <li><span class="contact-icon">📱</span> +62 822-5462-6615</li>
+                    <li><span class="contact-icon">🔗</span> @finaadii</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- TENTANG SAYA -->
+        <div class="cv-section">
+            <h3 class="cv-section-title">🌸 Tentang Saya</h3>
+            <p>
+                Saya adalah mahasiswa Pendidikan Komputer Universitas Mulawarman sekaligus santri yang memiliki ketertarikan pada teknologi dan pengembangan diri. 
+                Di luar itu, saya menyalurkan kreativitas melalui hobi memasak, termasuk mengeksplorasi berbagai hidangan populer Korea. 
+                Saya dikenal sebagai pribadi yang empati, mampu memahami orang lain, serta mudah beradaptasi dalam berbagai situasi. 
+                Dengan kombinasi kemampuan teknis dan soft skill, saya terus berupaya berkembang untuk memberikan kontribusi yang positif dan bermakna.
+            </p>
+        </div>
+
+        <!-- PENDIDIKAN -->
+        <div class="cv-section">
+            <h3 class="cv-section-title">🎓 Pendidikan</h3>
+
+            <div class="cv-item">
+                <span class="cv-item-date">2024 — Sekarang</span>
+                <div class="cv-item-body">
+                    <h4>Universitas Mulawarman</h4>
+                    <p class="institution">S1 Pendidikan Komputer</p>
+                    <p>Aktif dalam perkuliahan dan kegiatan HIMAPKOM serta mampu bekerja sama dalam tim. Menunjukkan kemampuan beradaptasi dan komunikasi yang baik dalam organisasi.</p>
+                </div>
+            </div>
+
+            <div class="cv-item">
+                <span class="cv-item-date">2021 — 2024</span>
+                <div class="cv-item-body">
+                    <h4>SMK Negeri 1 Nunukan</h4>
+                    <p class="institution">Sekolah Menengah Kejuruan</p>
+                    <p>Aktif dalam kegiatan sekolah serta mampu bekerja sama dalam tim. Menunjukkan kemampuan beradaptasi dan komunikasi yang baik.</p>
+                </div>
+            </div>
+
+            <div class="cv-item">
+                <span class="cv-item-date">2018 — 2021</span>
+                <div class="cv-item-body">
+                    <h4>SMP Negeri 2 Nunukan</h4>
+                    <p class="institution">Sekolah Menengah Pertama</p>
+                    <p>Aktif dalam kegiatan sekolah serta mampu bekerja sama dalam tim. Menunjukkan kemampuan beradaptasi dan komunikasi yang baik.</p>
+                </div>
+            </div>
+
+            <div class="cv-item">
+                <span class="cv-item-date">2012 — 2018</span>
+                <div class="cv-item-body">
+                    <h4>SD Negeri 008 Nunukan</h4>
+                    <p class="institution">Sekolah Dasar</p>
+                    <p>Aktif dalam kelas dan selalu meraih peringkat di kelasnya yaitu masuk 5 besar, gigih dalam belajar meskipun sedikit pemalu di depan teman-temannya.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PENGALAMAN -->
+        <div class="cv-section">
+            <h3 class="cv-section-title">💼 Pengalaman</h3>
+
+            <div class="cv-item">
+                <span class="cv-item-date">2024 — 2025</span>
+                <div class="cv-item-body">
+                    <h4>Bendahara (ROM X KWH)</h4>
+                    <p class="institution">HIMAPKOM — Himpunan Mahasiswa Pendidikan Komputer</p>
+                    <p>Menjadi bendahara pada acara seminar "ROM X KWH". Bertanggung jawab mengurus keuangan acara yang cukup besar dengan bimbingan tim dan SC yang solid hingga penghujung acara.</p>
+                </div>
+            </div>
+
+            <div class="cv-item">
+                <span class="cv-item-date">2024 — 2025</span>
+                <div class="cv-item-body">
+                    <h4>PI Konsumsi (MIKROTIK)</h4>
+                    <p class="institution">HIMAPKOM — Himpunan Mahasiswa Pendidikan Komputer</p>
+                    <p>Menjadi PI konsumsi pada acara perlombaan MIKROTIK selama 4 hari. Berhasil memastikan seluruh peserta terpenuhi kebutuhannya berkat anggota yang aktif dan solid.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- KEAHLIAN -->
+        <div class="cv-section">
+            <h3 class="cv-section-title">⚡ Keahlian</h3>
+            <div class="skills-grid">
+
+                <div class="skill-category">
+                    <h4>Desain & Kreatif</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Canva (dasar)</span>
+                        <span class="skill-tag">Figma (dasar)</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Teknologi</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Microsoft Office</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Bahasa</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Indonesia</span>
+                        <span class="skill-tag">Inggris (dasar)</span>
+                        <span class="skill-tag">Korea (dasar)</span>
+                        <span class="skill-tag">Jepang (dasar)</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Soft Skills</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Komunikasi</span>
+                        <span class="skill-tag">Kreatif</span>
+                        <span class="skill-tag">Teamwork</span>
+                        <span class="skill-tag">Adaptasi</span>
+                        <span class="skill-tag">Disiplin</span>
+                        <span class="skill-tag">Empati</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- DOKUMENTASI -->
+        <div class="cv-section">
+            <h3 class="cv-section-title">📸 Dokumentasi</h3>
+            <div class="DOKUMENTASI">
+                <img src="asset/1.jpeg" alt="HIMAPKOM">
+                <img src="asset/2.jpeg" alt="HIMAPKOM">
+                <img src="asset/3.jpeg" alt="HIMAPKOM">
+                <img src="asset/4.jpeg" alt="HIMAPKOM">
+                <img src="asset/5.jpeg" alt="HIMAPKOM">
+                <img src="asset/6.jpeg" alt="HIMAPKOM">
+                <img src="asset/7.jpeg" alt="HIMAPKOM">
+                <img src="asset/8.jpeg" alt="HIMAPKOM">
+                <img src="asset/9.jpeg" alt="HIMAPKOM">
+                <img src="asset/10.jpeg" alt="HIMAPKOM">
+                <img src="asset/11.jpeg" alt="HIMAPKOM">
+                <img src="asset/12.jpeg" alt="HIMAPKOM">
+                <img src="asset/13.jpeg" alt="HIMAPKOM">
+                <img src="asset/14.jpeg" alt="HIMAPKOM">
+                <img src="asset/sister.jpeg" alt="Sister">
+                <img src="asset/pemkes.jpeg" alt="Pemkes">
+                <img src="asset/santri.jpeg" alt="Santri All">
+                <img src="asset/girls.jpeg" alt="Santri Putri">
+                <img src="asset/khadijah.jpeg" alt="Room Mate">
+                <img src="asset/ppm.jpeg" alt="PPM">
+                <img src="asset/24 all.jpeg" alt="Angkatan 2024">
+                <img src="asset/nuris gathering.jpeg" alt="NURIS Gathering">
+                <img src="asset/gahtering.jpeg" alt="Gathering">
+                <img src="asset/two.jpeg" alt="Two">
+                <img src="asset/Engene.jpeg" alt="Engene">
+                <img src="asset/makan.jpeg" alt="makan-makan">
+                <img src="asset/friend.jpeg" alt="friend">
+                
+            </div>
+        </div>
+
+    </div><!-- end cv-container -->
+
+    <hr>
+    <p align="center">
+        <small>© 2026 The Idol's Table Blog — by Fina Kim</small>
+    </p>
+
+</body>
+</html>
